@@ -1,5 +1,7 @@
 # C-Language-Practice
 
+C-language topics that I wish to cover.
+
 
 - [x] Hello World
 - [ ] Multidimensional Arrays

@@ -11,12 +11,6 @@ struct student {
 };
 
 
-
-
-
-
-
-
 int main(void){
 
   char zeros[80];
@@ -26,22 +20,8 @@ int main(void){
   myStudent.age = 50;
   myStudent.percentage = .75;
 
-
-
-
-
   printf("The Student Age is %d\n", myStudent.age );
   printf("The Student Percentage is %f\n", myStudent.percentage );
-
-
-
-
-
-
-
-
-
-
 
   return 0;
 }
