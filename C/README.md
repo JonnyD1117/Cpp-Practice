@@ -28,4 +28,3 @@ C-language topics that I wish to cover.
 - [ ] Linking Multifile Programs
 - [ ] Using MAKE Files
 - [ ] Using CMAKE
--
