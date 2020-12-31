@@ -1,3 +1,4 @@
+
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -25,49 +26,55 @@ node_t* current = list_head;
     }
 }
 
+
+node_t* create_node(node_t* prev_node, node_t* next_node, int node_val){
+
+node_t* new_node = (node_t*)malloc(sizeof(node_t*));
+
+new_node->prev = prev_node;
+new_node->val = node_val;
+new_node->next = next_node;
+
+return new_node;
+}
+
+
+void add_at_end(int value, node_t* head){
+
+
+node_t* current = head;
+node_t* previous = NULL;
+
+
+while(current->next != NULL){
+
+  previous = current;
+  current = current->next;
+}
+
+
+node_t* end_node = create_node(current, NULL, value);
+
+
+}
+
+
+
+node_t* head;
+
 int main(void){
 
-    node_t* head = (node_t*)malloc(sizeof(node_t*));
-    node_t* node1 = (node_t*)malloc(sizeof(node_t*));
-    node_t* node2 = (node_t*)malloc(sizeof(node_t*));
+  head = create_node(NULL, NULL, 1);
 
-    if( head ==NULL || node1 ==NULL || node2 == NULL){
+  head->prev = NULL;
 
-        printf("Nodes not initialized: One of the Nodes is NULL");
-        return 1;
-    }
+  node_t* node1 = create_node(head, NULL,2);
 
-    // printf("Place 1\n");
+  head->next = node1;
 
-    head->prev = NULL;
-    head->next = node1;
-    head->val = 1;
-    // printf("Place 2\n");
+  printf("Head: n=[%d], p=[%d], val=[%d]\n", head->next, head->prev, head->val);
+  printf("Node1: n=[%d], p=[%d], val=[%d]\n", node1->next, node1->prev, node1->val);
 
-    node1->prev = head;
-    node1->next = node2;
-    node1->val = 2;
-    // printf("Place 3\n");
-
-
-    node2->next = NULL;
-    node2->val = 3;
-    node2->prev = node1;
-    // printf("Place 4\n");
-
-    printf("%d\n", head->val );
-    printf("%d\n", node1->val);
-    printf("%d\n", node2->val);
-
-// printf("Place 5\n");
-
-
-    free(head);
-    free(node1);
-    free(node2);
-
-
-    // printf("Place 6\n");
 
 
   return 0;
