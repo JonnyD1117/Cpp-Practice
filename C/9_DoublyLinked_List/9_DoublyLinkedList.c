@@ -39,10 +39,10 @@ return new_node;
 }
 
 
-void add_at_end(int value, node_t* head){
+node_t* add_at_end(node_t* head_node, int value){
 
 
-node_t* current = head;
+node_t* current = head_node;
 node_t* previous = NULL;
 
 
@@ -55,6 +55,8 @@ while(current->next != NULL){
 
 node_t* end_node = create_node(current, NULL, value);
 
+return end_node;
+
 
 }
 
@@ -65,17 +67,23 @@ node_t* head;
 int main(void){
 
   head = create_node(NULL, NULL, 1);
+  node_t* node1 = create_node(head, NULL,2);
+  node_t* node2 = create_node(node1, NULL, 3); 
 
   head->prev = NULL;
-
-  node_t* node1 = create_node(head, NULL,2);
-
   head->next = node1;
 
-  printf("Head: n=[%d], p=[%d], val=[%d]\n", head->next, head->prev, head->val);
-  printf("Node1: n=[%d], p=[%d], val=[%d]\n", node1->next, node1->prev, node1->val);
+  node1->prev = head;
+  node1->next = node2;
+
+  node2->prev = node1;
+  node2->next = NULL;
 
 
+ 
+  printf("Head : node_ptr=[%p], prev=[%p], next=[%p], val=[%d]\n", head, head->prev,  head->next,   head ->val);
+  printf("Node1: node_ptr=[%p], prev=[%p], next=[%p], val=[%d]\n", node1, node1->prev, node1->next,  node1->val);
+  printf("Node2: node_ptr=[%p], prev=[%p], next=[%p], val=[%d]\n", node2, node2->prev, node2->next,  node2->val);
 
   return 0;
 }
